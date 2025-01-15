@@ -1,0 +1,12 @@
+
+@import 'primeicons/primeicons.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --bg-gray-800: #1f2937;
+    --text-white: #ffffff;
+    --animation-curve: cubic-bezier(1, 0, 0, 1); 
+}

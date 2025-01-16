@@ -20,24 +20,24 @@ const handleToggle = () => {
         <!-- Main body of the header -->
         <div class="w-full h-16 shadow-md p-4 flex justify-between items-center">
             <h1>Money Manager</h1>
+
+            <!-- Menu Toggle -->
+            <div class="menu-toggle-wrapper w-10 h-10 block z-50 sm:fixed md:hidden" @click="handleToggle">
+                <input ref="menu_checkbox" type="checkbox" id="menu-toggle">
+                <label for="menu-toggle"></label>
+            </div>
+
+            <!-- Hidden Sidebar -->
+            <Sidebar class="md:opacity-100 transition-all duration-500" :class="opacity_class"/>
         </div>
 
-        <!-- Menu Toggle -->
-        <div class="menu-toggle-wrapper w-10 h-10 block z-50" @click="handleToggle">
-            <input ref="menu_checkbox" type="checkbox" id="menu-toggle">
-            <label for="menu-toggle"></label>
-        </div>
-
-        <!-- Hidden Sidebar -->
-        <Sidebar class="opacity-0 transition-all duration-500" :class="opacity_class"/>
     </header>
 </template>
 
 <style scoped lang="scss">
-@import '../assets/scss/variables.scss';
+@use '../assets/scss/variables.scss' as c;
 
     .menu-toggle-wrapper {
-        position: fixed;
         top: 0.7rem;
         right: 0.8rem;
         cursor: pointer;
@@ -51,7 +51,7 @@ const handleToggle = () => {
             position: absolute;
             top: 1.2rem;
             right: 0.5rem;
-            background-color: $text-white;
+            background-color: c.$text-white;
             width: 1.5rem;
             height: 0.1rem;
 
@@ -60,10 +60,10 @@ const handleToggle = () => {
                 content: '';
                 position:absolute;
                 display: block;
-                background-color: $text-white;
+                background-color: c.$text-white;
                 width: 1.5rem;
                 height: 0.1rem;
-                transition: all 0.4s $animation-curve;
+                transition: all 0.4s c.$animation-curve;
             }
 
             &::before {
@@ -79,13 +79,13 @@ const handleToggle = () => {
             background-color: transparent;
 
             &::before {
-                background-color: $text-white;
+                background-color: c.$text-white;
                 transform: rotate(45deg);
                 top: 0;
             }
 
             &::after {
-                background-color: $text-white;
+                background-color: c.$text-white;
                 transform: rotate(-45deg);
                 top: 0;
             }

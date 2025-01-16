@@ -9,10 +9,10 @@ const props = defineProps({
 </script>
 
 <template>
-    <div v-for="item in items" class="flex flex-col gap-3 cursor-pointer">
+    <div v-for="item in items" class="flex sm:flex-col gap-3 cursor-pointer">
         <!-- Parent item -->
         <slot name="item" :item="item">
-            <div class="flex flex-col gap-2 border border-white border-1 rounded p-2 group">
+            <div class="flex flex-col gap-2 sm:border md:border-none border-white border-1 rounded p-2 group">
                 <div class="flex items-center gap-2 hover:bg-light-oxford-blue rounded p-2" @click="open = !open">
                     <i :class="item.icon"></i>
                     <span>{{ item.label }}</span>

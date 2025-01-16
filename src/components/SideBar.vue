@@ -4,14 +4,13 @@ import Panel from './Panel.vue';
 
 const items = ref([
     {
-        label: 'Mail',
-        icon: 'pi pi-envelope',
+        label: 'Calendario',
+        icon: 'pi pi-calendar',
         badge: 5,
         items: [
             {
                 label: 'Compose',
                 icon: 'pi pi-file-edit',
-                shortcut: '⌘+N'
             },
             {
                 label: 'Inbox',
@@ -21,29 +20,24 @@ const items = ref([
             {
                 label: 'Sent',
                 icon: 'pi pi-send',
-                shortcut: '⌘+S'
             },
             {
                 label: 'Trash',
                 icon: 'pi pi-trash',
-                shortcut: '⌘+T', 
             }
         ]
     },
     {
-        label: 'Reports',
+        label: 'Reportes',
         icon: 'pi pi-chart-bar',
-        shortcut: '⌘+R',
         items: [
             {
-                label: 'Sales',
+                label: 'Ingresos',
                 icon: 'pi pi-chart-line',
-                badge: 3
             },
             {
-                label: 'Products',
-                icon: 'pi pi-list',
-                badge: 6
+                label: 'Gastos',
+                icon: 'pi pi-wallet',
             }
         ]
     },
@@ -68,14 +62,18 @@ const items = ref([
 </script>
 
 <template>
-    <aside class="w-72 h-screen bg-delft-blue text-white pr-4 pl-4 pt-8 fixed top-0 right-0 z-40 flex flex-col gap-3">
+    <aside id="panel" 
+        class="text-white flex gap-3 sm:flex-col sm:w-72 sm:h-screen sm:bg-delft-blue sm:fixed sm:py-8 sm:px-4 top-0 right-0 z-40 
+                 md:w-auto md:h-16 md:bg-transparent md:flex-row p-0">
+
         <!-- User info -->
-        <div class="flex flex-col items-center gap-2">
+        <div class="flex flex-col items-center gap-2 md:hidden">
             <figure class="w-12 h-12 rounded-full bg-dark-oxford-blue flex items-center justify-center">
                 <i class="pi pi-user"></i>
             </figure>
             <span class="text-xs">Mónica Cabañas</span>
         </div>
+
         <!-- Panel -->
         <Panel :items="items"/>
     </aside>

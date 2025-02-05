@@ -18,6 +18,7 @@ export default {
         'state-gray':        '#7D8597',
         'cool-gray':         '#979DAC',
         'isabelline':        '#edede9',
+        'yellow':            '#ffdd00',
       },
     },
   },

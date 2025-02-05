@@ -1,34 +1,11 @@
 <script setup>
-import Sidebar from './SideBar.vue'
-import { ref, computed } from 'vue'
-
-const menu_checkbox = ref(null)
-const show_menu = ref(false)
-
-const opacity_class = computed (() => {
-    return show_menu.value ? 'opacity-100' : 'opacity-0'
-})
-
-const handleToggle = () => {
-    menu_checkbox.value.checked = !menu_checkbox.value.checked
-    show_menu.value = menu_checkbox.value.checked
-}
 </script>
 
 <template>
-    <header class="w-screen text-white bg-dark-oxford-blue fixed top-0 left-0 z-50">
+    <header class="w-screen h-16 shadow-md p-4 top-0 left-0 z-50 bg-dark-oxford-blue text-white">
         <!-- Main body of the header -->
-        <div class="w-full h-16 shadow-md p-4 flex justify-between items-center">
+        <div class="w-full flex justify-between items-center">
             <h1>Money Manager</h1>
-
-            <!-- Menu Toggle -->
-            <div class="menu-toggle-wrapper w-10 h-10 block z-50 sm:fixed md:hidden" @click="handleToggle">
-                <input ref="menu_checkbox" type="checkbox" id="menu-toggle">
-                <label for="menu-toggle"></label>
-            </div>
-
-            <!-- Hidden Sidebar -->
-            <Sidebar class="md:opacity-100 transition-all duration-500" :class="opacity_class"/>
         </div>
 
     </header>
@@ -36,6 +13,10 @@ const handleToggle = () => {
 
 <style scoped lang="scss">
 @use '../assets/scss/variables.scss' as c;
+
+    .animated {
+        transition: all 0.5s ease-in-out;
+    }
 
     .menu-toggle-wrapper {
         top: 0.7rem;
